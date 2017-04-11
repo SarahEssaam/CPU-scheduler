@@ -50,6 +50,7 @@ public class RR extends Frame{
           else
               remainder.add(i,q);
        }
+       while(processArr.size()!=0){
        for(int i=0;i<processArr.size();i++){
            if(turns.get(i)==1){
                processArr.get(i).createSubProcess(endGlobal, endGlobal+remainder.get(i));
@@ -64,9 +65,15 @@ public class RR extends Frame{
                endGlobal += q;
                turns.set(i, turns.get(i)-1);
            }
-       }
+       }}
        processArr = tmp;
-      //  tmp.clear();
+       int subSize;
+       for(int i =0;i<size;i++){
+           subSize = processArr.get(i).getSubProcess().size();
+           processArr.get(i).setStart(processArr.get(i).getSubProcess().get(0).getStart());
+           processArr.get(i).setEnd(processArr.get(i).getSubProcess().get(subSize-1).getEnd());
+       }
+//    tmp.clear();
        new Gantt("RR Scheduling",processArr);
        this.dispose();
     }

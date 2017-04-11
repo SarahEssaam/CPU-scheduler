@@ -61,6 +61,12 @@ public class Process {
     public void setBurst(int b){
         burst = b;
     }
+    public void setStart(int b){
+        start = b;
+    }
+    public void setEnd(int b){
+        end = b;
+    }
     public void setArrival(int s){
         arrival = s;
     }
