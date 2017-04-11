@@ -27,7 +27,7 @@ public class SJF extends Frame{
        this.setVisible(false);
        count = 0;
        super.sortAscArrival();//1st sort according to arrival time
-       Process firstPro = super.getMinBurst();
+       Process firstPro = super.getMinBurst(); 
        //minimumm of arrival but with minimum burst
        processArr.remove(firstPro);
        //now sort as SJF in pBurst

@@ -21,6 +21,12 @@ public class Process {
         Q = 0;
         name = "P";
     }
+    void createSubProcess(int s,int e){
+        Process p = new Process();
+        p.start = s;
+        p.end = e;
+        subPro.add(p);
+    }
     int getWaitingTime(){
         if(subPro.size()==0)    //non preemptive mfish ta2ti3
         return (start - arrival);

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class RR extends Frame{
     private JTextField txtQ;
     private JLabel lblQ;
-    
+    private int q;
     public RR(){
         super("Round Robin");
         txtQ = new JTextField("");
@@ -20,22 +20,53 @@ public class RR extends Frame{
        
     }
    void btnAddPressed() {
-       System.out.println("in prio");
         Process p = new Process();
         p.setBurst(Integer.valueOf(txtBurst.getText()));
         p.setArrival(Integer.valueOf(txtArrival.getText()));
-        p.setQ(Integer.valueOf(txtQ.getText()));
+        q = Integer.valueOf(txtQ.getText());
+        p.setQ(q);
+        p.setName(count++);
         txtBurst.setText("");
         txtArrival.setText("");
-        lblQ.setText("");
+        txtQ.setText("");
         processArr.add(p);
     }
 
      void btnDonePressed() {
        this.setVisible(false);
-        for(int i = 0;i< processArr.size();i++){
-           processArr.get(i).RRevaluate();
+       count = 0;
+       
+       int endGlobal = 0;
+       ArrayList<Integer> turns = new ArrayList<>();
+       ArrayList<Integer> remainder = new ArrayList<>();
+       ArrayList<Process> tmp = new ArrayList<>();
+       tmp = (ArrayList<Process>)processArr.clone();
+       
+       int size = processArr.size();
+       for(int i = 0; i < size; i++){
+           turns.add(i, (int)(Math.ceil((double)(processArr.get(i).getBurst())/(double)q)));
+          if(((processArr.get(i).getBurst())%q)!=0)
+           remainder.add(i, ((processArr.get(i).getBurst())%q));
+          else
+              remainder.add(i,q);
        }
+       for(int i=0;i<processArr.size();i++){
+           if(turns.get(i)==1){
+               processArr.get(i).createSubProcess(endGlobal, endGlobal+remainder.get(i));
+               endGlobal += remainder.get(i); 
+               turns.remove(i);
+               remainder.remove(i);
+               processArr.remove(i);
+               i--;
+           }
+           else{
+               processArr.get(i).createSubProcess(endGlobal, endGlobal+q);
+               endGlobal += q;
+               turns.set(i, turns.get(i)-1);
+           }
+       }
+       processArr = tmp;
+      //  tmp.clear();
        new Gantt("RR Scheduling",processArr);
        this.dispose();
     }

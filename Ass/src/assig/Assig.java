@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Assig {
  
     public static void main(String[] args) {
-        PrioNon f = new PrioNon();
+        RR f = new RR();
         f.setVisible(true);
       
      //new test();
-            
+         
     }
     
 }
