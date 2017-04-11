@@ -17,7 +17,7 @@ public class SJF extends Frame{
         p.setBurst(Integer.valueOf(txtBurst.getText()));
         p.setArrival(Integer.valueOf(txtArrival.getText()));
         p.setName(count++);
-        p.setPriority(Integer.valueOf(txtArrival.getText()));
+        p.setPriority(Integer.valueOf(txtBurst.getText()));
         txtBurst.setText("");
         txtArrival.setText("");
         processArr.add(p);
@@ -26,14 +26,12 @@ public class SJF extends Frame{
      void btnDonePressed() {
        this.setVisible(false);
        count = 0;
-       super.sortAsc();     //1st sort according to arrival time
-       Process firstPro = super.getMin();
-       //minimumm of arrival but with minimum priority
+       super.sortAscArrival();//1st sort according to arrival time
+       Process firstPro = super.getMinBurst();
+       //minimumm of arrival but with minimum burst
        processArr.remove(firstPro);
-       for(int i = 0;i< processArr.size();i++){
-           processArr.get(i).setPriority(processArr.get(i).getBurst());
-       }
-       super.sortAsc();
+       //now sort as SJF in pBurst
+       super.sortAscPriority();
        ArrayList<Process> pBurst = (ArrayList < Process >)processArr.clone();
        processArr.clear();
        

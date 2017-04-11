@@ -34,10 +34,48 @@ public class PrioNon extends Frame{
 
      void btnDonePressed() {
        this.setVisible(false);
-        for(int i = 0;i< processArr.size();i++){
-           processArr.get(i).prioNonEvaluate();
+       count = 0;
+       super.sortAscArrival();//1st sort according to arrival time
+       Process firstPro = super.getMinPrio();
+       //minimumm of arrival but with minimum burst
+       processArr.remove(firstPro);
+       //now sort as SJF in pBurst
+       super.sortAscPriority();
+       ArrayList<Process> pPrio = (ArrayList < Process >)processArr.clone();
+       processArr.clear();
+       
+       firstPro.NonPremEvaluate(null);
+       
+       processArr.add(firstPro);
+       int i =0;
+       while(i < pPrio.size()){
+           if(firstPro.getEnd()<pPrio.get(i).getArrival()){
+               i++;
+               if(i==pPrio.size()){
+                   //handling if all elements have arrival > end
+                   pPrio.get(0).NonPremEvaluate(firstPro);
+                   firstPro = pPrio.get(0);
+                   pPrio.remove(0);
+                   processArr.add(firstPro);
+                   i = 0;
+               }
+           }
+           else{  
+               pPrio.get(i).NonPremEvaluate(firstPro);
+               firstPro = pPrio.get(i);
+               pPrio.remove(i);
+               processArr.add(firstPro);
+               i = 0;
+           }
        }
-       new Gantt("Priority Scheduling",processArr);
+       //pBurst should be empty now
+       
+       float avgWT = 0;
+        for(int j = 0;j< processArr.size();j++){
+           avgWT+= processArr.get(j).getWaitingTime();
+       }
+       avgWT /= processArr.size();
+       new Gantt("SJF Scheduling",processArr);
        this.dispose();
     }
         

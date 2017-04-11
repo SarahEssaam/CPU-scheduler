@@ -85,7 +85,7 @@ public class Frame extends JFrame {
        
     }
      //sort array ascendingly according to priority
-     void sortAsc(){
+     void sortAscPriority(){
          int size = processArr.size();
          if(size==1) return;
          int min;
@@ -102,9 +102,27 @@ public class Frame extends JFrame {
             processArr.set(min, tmp);
         }
      }
-     Process getMin(){
+     void sortAscArrival(){
+         int size = processArr.size();
+         if(size==1) return;
+         int min;
+        for(int i = 0 ;i < size-1 ;i++){
+            min = i;
+            for(int j = i+1; j < size ;j++ ){
+                if((processArr.get(j).getArrival())<(processArr.get(min).getArrival())){
+                    min = j;
+                }
+            }
+            //swap i and min
+            Process tmp = processArr.get(i);
+            processArr.set(i, processArr.get(min));
+            processArr.set(min, tmp);
+        }
+     }
+     Process getMinBurst(){
          int size = processArr.size();
          if(size==1) return processArr.get(0);
+        /* doesnt make sense cuz already sorted 
          int min = 0;
             for(int j = 1; j < size ;j++ ){
                 if((processArr.get(j).getPriority())<(processArr.get(min).getPriority())){
@@ -112,10 +130,34 @@ public class Frame extends JFrame {
                 }
             }
             //for equal minimum arrivals : find minimum in burst
-            min = 0;
+          */int  min = 0;
         for(int i = 1; i< size;i++){
             if(processArr.get(i).getArrival()==processArr.get(min).getArrival()){
                 if(processArr.get(i).getBurst()<processArr.get(min).getBurst()){
+                    min = i;
+                }
+            }
+            else{
+                break;
+            }
+        }
+            //swap i and min
+            return processArr.get(min);
+        }
+     Process getMinPrio(){
+         int size = processArr.size();
+         if(size==1) return processArr.get(0);
+         int min = 0;
+          /*  for(int j = 1; j < size ;j++ ){
+                if((processArr.get(j).getPriority())<(processArr.get(min).getPriority())){
+                    min = j;
+                }
+            }
+            //for equal minimum arrivals : find minimum in burst
+            min = 0;*/
+        for(int i = 1; i< size;i++){
+            if(processArr.get(i).getArrival()==processArr.get(min).getArrival()){
+                if(processArr.get(i).getPriority()<processArr.get(min).getPriority()){
                     min = i;
                 }
             }

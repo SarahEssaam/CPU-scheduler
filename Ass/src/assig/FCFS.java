@@ -20,7 +20,7 @@ public class FCFS extends Frame{
         p.setArrival(Integer.valueOf(txtArrival.getText()));
         p.setName(count++);
         //set priority of each process to be arrival time
-        p.setPriority(Integer.valueOf(txtArrival.getText()));
+       // p.setPriority(Integer.valueOf(txtArrival.getText()));
         txtBurst.setText("");
         txtArrival.setText("");
         processArr.add(p);
@@ -29,7 +29,7 @@ public class FCFS extends Frame{
      void btnDonePressed() {
        this.setVisible(false);
        count = 0;
-       super.sortAsc();
+       super.sortAscArrival();
        float avgWT = 0;
        processArr.get(0).NonPremEvaluate(null);
        avgWT+= processArr.get(0).getWaitingTime();

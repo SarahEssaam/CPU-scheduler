@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Assig {
  
     public static void main(String[] args) {
-        FCFS f = new FCFS();
+        PrioNon f = new PrioNon();
         f.setVisible(true);
       
      //new test();
