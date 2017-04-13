@@ -5,13 +5,16 @@
         <group>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/FCFS.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/PrioNon.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/test.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Frame.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/RR.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Menu.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Prio.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Assig.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/SJF.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/MainFrame.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Process.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Gantt.java</file>
         </group>
     </open-files>
 </project-private>

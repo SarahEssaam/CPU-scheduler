@@ -9,6 +9,7 @@ public class RR extends Frame{
     private JTextField txtQ;
     private JLabel lblQ;
     private int q;
+    private boolean firstAdd;
     public RR(){
         super("Round Robin");
         txtQ = new JTextField("");
@@ -17,13 +18,25 @@ public class RR extends Frame{
         super.grid.add(lblQ,4);
         super.grid.remove(5);
         super.grid.add(txtQ,5);
-       
+       firstAdd = true;
     }
    void btnAddPressed() {
+       if(firstAdd==true){
+           q = Integer.valueOf(txtQ.getText());
+           firstAdd =  false;
+           txtQ.setText("Done");
+           System.out.println("1");
+         //  super.grid.remove(4);
+     //   super.grid.add(lblExtra,4);
+        //super.grid.remove(5);
+       // super.grid.add(lblExtra2,5);
+           //remove(lblQ);
+       }
+       System.out.println("2");
         Process p = new Process();
         p.setBurst(Integer.valueOf(txtBurst.getText()));
         p.setArrival(Integer.valueOf(txtArrival.getText()));
-        q = Integer.valueOf(txtQ.getText());
+        
         p.setQ(q);
         p.setName(count++);
         txtBurst.setText("");

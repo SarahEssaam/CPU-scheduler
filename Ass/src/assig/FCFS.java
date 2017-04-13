@@ -38,7 +38,7 @@ public class FCFS extends Frame{
            avgWT+= processArr.get(i).getWaitingTime();
        }
         avgWT /= processArr.size();
-         JFrame f = new JFrame();
+     /*    JFrame f = new JFrame();
         f.setSize(300,200);
         f.setDefaultCloseOperation(EXIT_ON_CLOSE);
         RefineryUtilities.centerFrameOnScreen(f);
@@ -51,6 +51,8 @@ public class FCFS extends Frame{
         c.add(t);
         t.setText(String.valueOf(avgWT));
         f.setVisible(true);
+*/
+     AvgWTp.setAvgWT(avgWT);
        new Gantt("FCFS Scheduling",processArr);
        this.dispose();
     }

@@ -20,7 +20,7 @@ public class Prio extends Frame{
        
     }
    void btnAddPressed() {
-       System.out.println("in prio");
+      // System.out.println("in prio");
         Process p = new Process();
         p.setBurst(Integer.valueOf(txtBurst.getText()));
         p.setArrival(Integer.valueOf(txtArrival.getText()));

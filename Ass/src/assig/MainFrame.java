@@ -14,86 +14,73 @@ import org.jfree.ui.RefineryUtilities;
 
 
 public class MainFrame extends JFrame {
-    JPopupMenu menu;
+    JButton[] item = new JButton[6];
     //JLabel lblChoose;
     JButton btnOk;
+    JLabel lbl;
+    JPanel sPanel;
     Frame f;
+    private String str;
     public MainFrame(){
         this.setTitle("CPU Scheduling");
         this.setSize(300,200);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        RefineryUtilities.centerFrameOnScreen(this);
+      //  RefineryUtilities.centerFrameOnScreen(this);
         //this.pack();
         Container c = this.getContentPane();
-        c.setLayout(new GridLayout(1,2));
-        
-        menu = new JPopupMenu("Choose Scheduling Algorithm");
-        JMenuItem [] item = new JMenuItem[6] ;
-        item[0] = new JMenuItem("FCFS");
-        item[1] = new JMenuItem("SJF");
-        item[2] = new JMenuItem("SRTF"); 
-        item[3] = new JMenuItem("RR");
-        item[4] = new JMenuItem("Preemptive Priority");
-        item[5] = new JMenuItem("Priority");
+       c.setLayout(new GridLayout(1,2));
+        lbl = new JLabel("Choose one");
+        item[0] = new JButton("FCFS");
+        item[1] = new JButton("SJF");
+        item[2] = new JButton("SRTF"); 
+        item[3] = new JButton("RR");
+        item[4] = new JButton("Preemptive Priority");
+        item[5] = new JButton("Priority");
         btnOk = new JButton("Okey");
         
-        for(int i= 0;i<6;i++)        
-        menu.add(item[i]);
+         sPanel = new JPanel(new GridLayout(6,1));
+        sPanel.add(lbl);
+         for(int i= 0;i<6;i++)        
+        sPanel.add(item[i]);
       
-        c.add(menu);
-        c.setVisible(true);
-        menu.show(c, 10, 10);
-        c.add(btnOk);
+        c.add(sPanel);
+        c.add(new AvgWTp());
+      //  c.setVisible(true);
         
-       
-        
-        item[0].addActionListener(new ActionListener() {
+        for(int i = 0;i < 6; i++){
+        item[i].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                 f = new FCFS();
+                 initAlg(e);
                 }
         });
-        item[1].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 f = new SJF();
-                }
-        });
-        item[2].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        }
+        
+    }
+    private void initAlg(ActionEvent e){
+        str = ((JButton)(e.getSource())).getText();
+        switch (str){
+            case "FCFS":
+                f = new FCFS();
+                break;
+            case "SJF":
+                f = new SJF();
+                break;
+            case "SRTF":
                 f = new SRTF();
-                }
-        });
-        item[3].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 f = new RR();
-                System.out.println("HNAa");
-                }
-        });
-        item[4].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+                break;
+            case "RR":
+                f = new RR();
+                break;
+            case "Preemptive Priority":
                  f = new Prio();
-                }
-        });
-        item[5].addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+                 break;
+            case "Priority":
                  f = new PrioNon();
-                }
-        });
+                 break;
+        }
+            f.setVisible(true);    
         
-       
-        btnOk.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        f.setVisible(true);
-                    }
-                }
-        );
     }
 }
 
