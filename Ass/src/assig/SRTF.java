@@ -41,6 +41,7 @@ public class SRTF extends Frame{
       // for(int i = 0;i< size;i++)
         //   System.out.println(processArr.get(i).getName());
        Process first = getMinPrio();
+       endG = first.getArrival();
        sortAscPriority();
     //   for(int i = 0;i< size;i++)
       //     System.out.println(processArr.get(i).getName());
@@ -98,12 +99,18 @@ public class SRTF extends Frame{
            }
        }
        processArr = tmp;
+       avgWT = 0;
        int subSize;
+       Process t;
        for(int i =0;i<size;i++){
-           subSize = processArr.get(i).getSubProcess().size();
-           processArr.get(i).setStart(processArr.get(i).getSubProcess().get(0).getStart());
-           processArr.get(i).setEnd(processArr.get(i).getSubProcess().get(subSize-1).getEnd());
+           t = processArr.get(i);
+           subSize = t.getSubProcess().size();
+           t.setStart(t.getSubProcess().get(0).getStart());
+           t.setEnd(t.getSubProcess().get(subSize-1).getEnd());
+           avgWT+= t.getWaitingTime();
        }
+        avgWT = avgWT/size ;
+        AvgWTp.setAvgWT(avgWT);
        new Gantt("SRTF Scheduling",processArr);
        this.dispose();
     }

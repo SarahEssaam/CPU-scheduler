@@ -96,12 +96,18 @@ public class Prio extends Frame{
            }
        }
        processArr = tmp;
+       avgWT = 0;
        int subSize;
+       Process t;
        for(int i =0;i<size;i++){
-           subSize = processArr.get(i).getSubProcess().size();
-           processArr.get(i).setStart(processArr.get(i).getSubProcess().get(0).getStart());
-           processArr.get(i).setEnd(processArr.get(i).getSubProcess().get(subSize-1).getEnd());
+           t = processArr.get(i);
+           subSize = t.getSubProcess().size();
+           t.setStart(t.getSubProcess().get(0).getStart());
+           t.setEnd(t.getSubProcess().get(subSize-1).getEnd());
+           avgWT+= t.getWaitingTime();
        }
+        avgWT = avgWT/size ;
+        AvgWTp.setAvgWT(avgWT);
        new Gantt("Priority Scheduling",processArr);
        this.dispose();
     }

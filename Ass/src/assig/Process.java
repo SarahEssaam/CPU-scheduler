@@ -25,7 +25,6 @@ public class Process {
     }
     void evalTurns(){
         turns = (int)((Math.ceil((double)(burst)/(double)Q)));
-       
     }
     void setTurns(int t){
         turns = t;
@@ -52,11 +51,13 @@ public class Process {
         subPro.add(p);
     }
     int getWaitingTime(){
+        int w = start - arrival;
         if(subPro.size()==0)    //non preemptive mfish ta2ti3
-        return (start - arrival);
-        else
-            //////////////  
-        return 0;
+        return w;
+        else{
+            w += (end-start-burst); 
+            return w;
+        }
     }
     int getStart(){
         return start;

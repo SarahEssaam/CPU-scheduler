@@ -75,6 +75,7 @@ public class PrioNon extends Frame{
            avgWT+= processArr.get(j).getWaitingTime();
        }
        avgWT /= processArr.size();
+       AvgWTp.setAvgWT(avgWT);
        new Gantt("SJF Scheduling",processArr);
        this.dispose();
     }

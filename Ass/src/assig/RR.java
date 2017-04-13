@@ -36,7 +36,7 @@ public class RR extends Frame{
         Process p = new Process();
         p.setBurst(Integer.valueOf(txtBurst.getText()));
         p.setArrival(Integer.valueOf(txtArrival.getText()));
-        
+        p.setPriority(Integer.valueOf(txtArrival.getText()));
         p.setQ(q);
         p.setName(count++);
         txtBurst.setText("");
@@ -48,11 +48,12 @@ public class RR extends Frame{
      void btnDonePressed() {
        this.setVisible(false);
        count = 0;
-       
-       int endGlobal = 0;
+       sortAscArrival();
+       int endGlobal = (getMinPrio().getArrival());
        ArrayList<Integer> turns = new ArrayList<>();
        ArrayList<Integer> remainder = new ArrayList<>();
        ArrayList<Process> tmp = new ArrayList<>();
+       
        tmp = (ArrayList<Process>)processArr.clone();
        
        int size = processArr.size();
@@ -81,11 +82,17 @@ public class RR extends Frame{
        }}
        processArr = tmp;
        int subSize;
+       Process t;
+       avgWT = 0;
        for(int i =0;i<size;i++){
-           subSize = processArr.get(i).getSubProcess().size();
-           processArr.get(i).setStart(processArr.get(i).getSubProcess().get(0).getStart());
-           processArr.get(i).setEnd(processArr.get(i).getSubProcess().get(subSize-1).getEnd());
+               t = processArr.get(i);
+           subSize = t.getSubProcess().size();
+           t.setStart(t.getSubProcess().get(0).getStart());
+           t.setEnd(t.getSubProcess().get(subSize-1).getEnd());
+           avgWT += t.getWaitingTime();
        }
+       avgWT /= size;
+       AvgWTp.setAvgWT(avgWT);
 //    tmp.clear();
        new Gantt("RR Scheduling",processArr);
        this.dispose();

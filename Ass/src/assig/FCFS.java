@@ -30,7 +30,7 @@ public class FCFS extends Frame{
        this.setVisible(false);
        count = 0;
        super.sortAscArrival();
-       float avgWT = 0;
+       avgWT = 0;
        processArr.get(0).NonPremEvaluate(null);
        avgWT+= processArr.get(0).getWaitingTime();
         for(int i = 1;i< processArr.size();i++){
