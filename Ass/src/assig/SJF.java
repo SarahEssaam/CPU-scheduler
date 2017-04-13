@@ -68,7 +68,6 @@ public class SJF extends Frame{
        avgWT /= processArr.size();
        AvgWTp.setAvgWT(avgWT);
        gant.createGantt("SJF Scheduling",processArr);
-       MainFrame.setProArr(processArr);
        this.dispose();
     }
         

@@ -23,9 +23,12 @@ import java.util.ArrayList;
 
 public class Gantt extends ApplicationFrame {
    // private static final long serialVersionUID = 1L;
+    String tit;
     private ArrayList<Process> processArr;
     public Gantt(final String title,ArrayList<Process> p) {
+        
         super(title);
+        tit = title;
         processArr = p;
         final GanttCategoryDataset dataset = createDataset();
         final JFreeChart chart = createChart(dataset);
@@ -39,6 +42,7 @@ public class Gantt extends ApplicationFrame {
 }
     void createGantt(final String title,ArrayList<Process> p) {
         setTitle(title);
+        tit = title;
         processArr = p;
         final GanttCategoryDataset dataset = createDataset();
         final JFreeChart chart = createChart(dataset);
@@ -56,21 +60,9 @@ public GanttCategoryDataset createDataset() {
     TaskSeries s;
     TaskSeriesCollection collection = new TaskSeriesCollection();
     Process tm ;
-    if(FPanel.isFloating==false)
-    for(int i= 0 ;i<processArr.size();i++){
-     tm  = processArr.get(i);
-        s = new TaskSeries(tm.getName());
-     
-      t = new Task(tm.getName(),new SimpleTimePeriod((int)(tm.getStart()),(int)(tm.getEnd()))); 
-       ArrayList <Process> p = tm.getSubProcess();
-        for(int j = 0; j < p.size(); j++){
-          //  System.out.println("ksdksk");
-            t.addSubtask(new Task("",new SimpleTimePeriod((int)(p.get(j).getStart()),(int)(p.get(j).getEnd()))));
-        }
-        s.add(t);
-        collection.add(s);
-    }
-    else
+    
+  if(processArr.size()>0)
+    if((FPanel.isFloating==true)||((((processArr.get(0).getQ())%1)!=0)&&(tit=="RR Scheduling")))
         for(int i= 0 ;i<processArr.size();i++){
      tm  = processArr.get(i);
         s = new TaskSeries(tm.getName());
@@ -80,6 +72,20 @@ public GanttCategoryDataset createDataset() {
         for(int j = 0; j < p.size(); j++){
           //  System.out.println("ksdksk");
             t.addSubtask(new Task("",new SimpleTimePeriod((int)(p.get(j).getStart()*1000),(int)(p.get(j).getEnd()*1000))));
+        }
+        s.add(t);
+        collection.add(s);
+    }
+    else
+          for(int i= 0 ;i<processArr.size();i++){
+     tm  = processArr.get(i);
+        s = new TaskSeries(tm.getName());
+     
+      t = new Task(tm.getName(),new SimpleTimePeriod((int)(tm.getStart()),(int)(tm.getEnd()))); 
+       ArrayList <Process> p = tm.getSubProcess();
+        for(int j = 0; j < p.size(); j++){
+          //  System.out.println("ksdksk");
+            t.addSubtask(new Task("",new SimpleTimePeriod((int)(p.get(j).getStart()),(int)(p.get(j).getEnd()))));
         }
         s.add(t);
         collection.add(s);

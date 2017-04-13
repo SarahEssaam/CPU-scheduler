@@ -112,7 +112,6 @@ public class SRTF extends Frame{
         avgWT = avgWT/size ;
         AvgWTp.setAvgWT(avgWT);
        gant.createGantt("SRTF Scheduling",processArr);
-       MainFrame.setProArr(processArr);
        this.dispose();
     }
         

@@ -77,6 +77,9 @@ public class Process {
     String getName(){
         return name;
     }
+    float getQ(){
+        return Q;
+    }
     void setName(int s){
         name += Integer.toString(s);
     }

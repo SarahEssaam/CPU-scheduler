@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Assig {
  
     public static void main(String[] args) {
+      //  System.out.println(0.5%1);
         MainFrame f = new MainFrame();
         f.setVisible(true);
   /*    Process p = new Process();

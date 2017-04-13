@@ -24,7 +24,7 @@ public class RR extends Frame{
        if(firstAdd==true){
            q = Float.valueOf(txtQ.getText());
            firstAdd =  false;
-           txtQ.setText("Done");
+          // txtQ.setText("Done");
            super.grid.remove(4);
         super.grid.add(lblExtra,4);
         super.grid.remove(5);
@@ -59,8 +59,11 @@ public class RR extends Frame{
        int size = processArr.size();
        for(int i = 0; i < size; i++){
            processArr.get(i).evalTurns();
+           //System.out.println("t"+processArr.get(i).getTurns());
            processArr.get(i).evalRem();
+           //System.out.println("R"+processArr.get(i).getRem());
        } 
+       
        Process tmpp;
        while(processArr.isEmpty()==false){
        for(int i=0;i<processArr.size();i++){
@@ -92,7 +95,6 @@ public class RR extends Frame{
        AvgWTp.setAvgWT(avgWT);
 //    tmp.clear();
        gant.createGantt("RR Scheduling",processArr);
-       MainFrame.setProArr(processArr);
        this.dispose();
     }
         
