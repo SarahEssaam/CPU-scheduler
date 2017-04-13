@@ -14,10 +14,10 @@ public class SJF extends Frame{
    void btnAddPressed() {
        //System.out.println("in FCFS");
         Process p = new Process();
-        p.setBurst(Integer.valueOf(txtBurst.getText()));
-        p.setArrival(Integer.valueOf(txtArrival.getText()));
+        p.setBurst(Float.valueOf(txtBurst.getText()));
+        p.setArrival(Float.valueOf(txtArrival.getText()));
         p.setName(count++);
-        p.setPriority(Integer.valueOf(txtBurst.getText()));
+        p.setPriority(Float.valueOf(txtBurst.getText()));
         txtBurst.setText("");
         txtArrival.setText("");
         processArr.add(p);
@@ -32,7 +32,7 @@ public class SJF extends Frame{
        processArr.remove(firstPro);
        //now sort as SJF in pBurst
        super.sortAscPriority();
-       ArrayList<Process> pBurst = (ArrayList < Process >)processArr.clone();
+       ArrayList<Process> pBurst = (ArrayList<Process>)processArr.clone();
        processArr.clear();
        
        firstPro.NonPremEvaluate(null);
@@ -61,7 +61,7 @@ public class SJF extends Frame{
        }
        //pBurst should be empty now
        
-       float avgWT = 0;
+        avgWT = 0;
         for(int j = 0;j< processArr.size();j++){
            avgWT+= processArr.get(j).getWaitingTime();
        }

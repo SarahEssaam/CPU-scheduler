@@ -7,7 +7,7 @@ public class Process {
     private float start;
     private float end;
     private float burst;
-    private int prio;
+    private float prio;
     private float Q;
     private String name;
     private int turns;
@@ -68,7 +68,7 @@ public class Process {
     float getArrival(){
         return arrival;
     }
-    int getPriority(){
+    float getPriority(){
         return prio;
     }
     float getBurst(){
@@ -95,7 +95,7 @@ public class Process {
     public void setArrival(float s){
         arrival = s;
     }
-    public void setPriority(int p){
+    public void setPriority(float p){
         prio = p;
     }
     public void setQ(float p){

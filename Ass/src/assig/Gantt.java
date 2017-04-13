@@ -42,14 +42,31 @@ public GanttCategoryDataset createDataset() {
     Task t;
     TaskSeries s;
     TaskSeriesCollection collection = new TaskSeriesCollection();
+    Process tm ;
+    if(FPanel.isFloating==false)
     for(int i= 0 ;i<processArr.size();i++){
-     s = new TaskSeries(processArr.get(i).getName());
-    
-      t = new Task(processArr.get(i).getName(),new SimpleTimePeriod((int)(processArr.get(i).getStart()),(int)(processArr.get(i).getEnd()))); 
-       ArrayList <Process> p = processArr.get(i).getSubProcess();
+     tm  = processArr.get(i);
+        s = new TaskSeries(tm.getName());
+     
+      t = new Task(tm.getName(),new SimpleTimePeriod((int)(tm.getStart()),(int)(tm.getEnd()))); 
+       ArrayList <Process> p = tm.getSubProcess();
         for(int j = 0; j < p.size(); j++){
           //  System.out.println("ksdksk");
             t.addSubtask(new Task("",new SimpleTimePeriod((int)(p.get(j).getStart()),(int)(p.get(j).getEnd()))));
+        }
+        s.add(t);
+        collection.add(s);
+    }
+    else
+        for(int i= 0 ;i<processArr.size();i++){
+     tm  = processArr.get(i);
+        s = new TaskSeries(tm.getName());
+     
+      t = new Task(tm.getName(),new SimpleTimePeriod((int)(tm.getStart()*1000),(int)(tm.getEnd()*1000))); 
+       ArrayList <Process> p = tm.getSubProcess();
+        for(int j = 0; j < p.size(); j++){
+          //  System.out.println("ksdksk");
+            t.addSubtask(new Task("",new SimpleTimePeriod((int)(p.get(j).getStart()*1000),(int)(p.get(j).getEnd()*1000))));
         }
         s.add(t);
         collection.add(s);
@@ -63,7 +80,9 @@ public GanttCategoryDataset createDataset() {
      return result;
      */
 private JFreeChart createChart(final GanttCategoryDataset dataset) {
-    final JFreeChart chart = ChartFactory.createGanttChart(
+    JFreeChart chart;
+    if(FPanel.isFloating==false){
+    chart = ChartFactory.createGanttChart(
             "Gantt ", // chart title
             "PRO", // domain axis label
             "TIME (ms)", // range axis label
@@ -72,6 +91,18 @@ private JFreeChart createChart(final GanttCategoryDataset dataset) {
             true, // tooltips
             false // urls
     );
+    }
+    else{
+      chart = ChartFactory.createGanttChart(
+            "Gantt ", // chart title
+            "PRO", // domain axis label
+            "TIME (MicroSec)", // range axis label
+            dataset, // data
+            true, // include legend
+            true, // tooltips
+            false // urls
+    );  
+    }
     CategoryPlot plot = chart.getCategoryPlot();
 
     DateAxis axis = (DateAxis) plot.getRangeAxis();

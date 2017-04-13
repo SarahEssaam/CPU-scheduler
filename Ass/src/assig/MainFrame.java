@@ -23,12 +23,12 @@ public class MainFrame extends JFrame {
     private String str;
     public MainFrame(){
         this.setTitle("CPU Scheduling");
-        this.setSize(300,200);
+        this.setSize(500,400);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
       //  RefineryUtilities.centerFrameOnScreen(this);
         //this.pack();
         Container c = this.getContentPane();
-       c.setLayout(new GridLayout(1,2));
+       c.setLayout(new GridLayout(2,2));
         lbl = new JLabel("Choose one");
         item[0] = new JButton("FCFS");
         item[1] = new JButton("SJF");
@@ -45,6 +45,7 @@ public class MainFrame extends JFrame {
       
         c.add(sPanel);
         c.add(new AvgWTp());
+        c.add(new FPanel());
       //  c.setVisible(true);
         
         for(int i = 0;i < 6; i++){

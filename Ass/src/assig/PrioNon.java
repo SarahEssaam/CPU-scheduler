@@ -24,7 +24,7 @@ public class PrioNon extends Frame{
         Process p = new Process();
         p.setBurst(Float.valueOf(txtBurst.getText()));
         p.setArrival(Float.valueOf(txtArrival.getText()));
-        p.setPriority(Integer.valueOf(txtPrioNo.getText()));
+        p.setPriority(Float.valueOf(txtPrioNo.getText()));
         p.setName(count++);
         txtBurst.setText("");
         txtArrival.setText("");

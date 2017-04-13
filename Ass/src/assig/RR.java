@@ -22,7 +22,7 @@ public class RR extends Frame{
     }
    void btnAddPressed() {
        if(firstAdd==true){
-           q = Integer.valueOf(txtQ.getText());
+           q = Float.valueOf(txtQ.getText());
            firstAdd =  false;
            txtQ.setText("Done");
            super.grid.remove(4);
@@ -34,9 +34,9 @@ public class RR extends Frame{
        }
      //  System.out.println("2");
         Process p = new Process();
-        p.setBurst(Integer.valueOf(txtBurst.getText()));
-        p.setArrival(Integer.valueOf(txtArrival.getText()));
-        p.setPriority(Integer.valueOf(txtArrival.getText()));
+        p.setBurst(Float.valueOf(txtBurst.getText()));
+        p.setArrival(Float.valueOf(txtArrival.getText()));
+        p.setPriority(Float.valueOf(txtArrival.getText()));
         p.setQ(q);
         p.setName(count++);
         txtBurst.setText("");

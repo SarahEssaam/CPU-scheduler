@@ -28,7 +28,7 @@ public class Prio extends Frame{
         Process p = new Process();
         p.setBurst(Float.valueOf(txtBurst.getText()));
         p.setArrival(Float.valueOf(txtArrival.getText()));
-        p.setPriority(Integer.valueOf(txtPrioNo.getText()));
+        p.setPriority(Float.valueOf(txtPrioNo.getText()));
         txtBurst.setText("");
         txtArrival.setText("");
         txtPrioNo.setText("");

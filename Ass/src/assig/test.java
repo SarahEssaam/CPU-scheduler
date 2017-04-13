@@ -15,7 +15,30 @@ import java.util.ArrayList;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import org.jfree.ui.RefineryUtilities;
 public class test {
+    JFrame f;
     public test(){
+        f = new JFrame();
+        Container co = f.getContentPane();
+       f.setDefaultCloseOperation(EXIT_ON_CLOSE);
+f.setSize(300,200);
+    GridBagLayout gridbag = new GridBagLayout();
+    
+    GridBagConstraints c = new GridBagConstraints();
+    co.setLayout(gridbag);
+    c.weightx = 1.0;
+    c.weighty = 1.0;
+    makebutton("Button 1", gridbag, c);
+    c.fill = GridBagConstraints.BOTH;
+    makebutton("Button 2", gridbag, c);
+   // f.pack();
+        f.setVisible(true);
+    }
+    
+  void makebutton(String name, GridBagLayout gridbag, GridBagConstraints c) {
+    Button button = new Button(name);
+    gridbag.setConstraints(button, c);
+    f.getContentPane().add(button);
+  }        
       /*  JFrame j = new JFrame();
         j.setTitle("Main");
         j.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -26,7 +49,7 @@ public class test {
         JPanel p = new JPanel(new FlowLayout());
         
         */
-      int turns;
+  /*    int turns;
       float burst = 2.25f;
       float Q = 0.5f;
       float remainder;
@@ -79,5 +102,5 @@ j.setVisible(true);
         for(int i = 0;i<4;i++){
             System.out.println(p.get(i).getPriority());*/
         }
-}
+
 
