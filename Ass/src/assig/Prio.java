@@ -109,7 +109,8 @@ public class Prio extends Frame{
        }
         avgWT = avgWT/size ;
         AvgWTp.setAvgWT(avgWT);
-       new Gantt("Priority Scheduling",processArr);
+       gant.createGantt("Priority Scheduling",processArr);
+       MainFrame.setProArr(processArr);
        this.dispose();
     }
         

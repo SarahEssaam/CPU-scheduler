@@ -54,6 +54,7 @@ public class FCFS extends Frame{
 */
      AvgWTp.setAvgWT(avgWT);
        gant.createGantt("FCFS Scheduling",processArr);
+       MainFrame.setProArr(processArr);
        this.dispose();
     }
      

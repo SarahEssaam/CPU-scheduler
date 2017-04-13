@@ -91,7 +91,8 @@ public class RR extends Frame{
        avgWT /= size;
        AvgWTp.setAvgWT(avgWT);
 //    tmp.clear();
-       new Gantt("RR Scheduling",processArr);
+       gant.createGantt("RR Scheduling",processArr);
+       MainFrame.setProArr(processArr);
        this.dispose();
     }
         

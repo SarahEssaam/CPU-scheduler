@@ -22,7 +22,7 @@ public class Frame extends JFrame {
      protected JButton btnDone;
      protected float avgWT;
      public static Gantt gant;
-     protected ArrayList<Process> processArr;
+     protected static ArrayList<Process> processArr;
     
     public Frame(String title){
         this.setTitle(title);
@@ -149,12 +149,13 @@ public class Frame extends JFrame {
             //swap i and min
             return processArr.get(min);
         }
-}
-     /* for testing
-     public void setProArr(ArrayList<Process> p){
+
+     
+     public static void setProcessArr(ArrayList<Process> p){
          processArr = p;
      }
-     public ArrayList<Process> getProArr(){
+     public ArrayList<Process> getProcessArr(){
          return processArr;
      }
-*/
+
+}

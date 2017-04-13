@@ -76,7 +76,8 @@ public class PrioNon extends Frame{
        }
        avgWT /= processArr.size();
        AvgWTp.setAvgWT(avgWT);
-       new Gantt("SJF Scheduling",processArr);
+       gant.createGantt("SJF Scheduling",processArr);
+       MainFrame.setProArr(processArr);
        this.dispose();
     }
         
