@@ -25,7 +25,8 @@ public class RR extends Frame{
            q = Integer.valueOf(txtQ.getText());
            firstAdd =  false;
            txtQ.setText("Done");
-           System.out.println("1");
+ 
+ //          System.out.println("1");
          //  super.grid.remove(4);
      //   super.grid.add(lblExtra,4);
         //super.grid.remove(5);
@@ -62,8 +63,8 @@ public class RR extends Frame{
            remainder.add(i, ((processArr.get(i).getBurst())%q));
           else
               remainder.add(i,q);
-       }
-       while(processArr.size()!=0){
+       } 
+       while(processArr.isEmpty()==false){
        for(int i=0;i<processArr.size();i++){
            if(turns.get(i)==1){
                processArr.get(i).createSubProcess(endGlobal, endGlobal+remainder.get(i));

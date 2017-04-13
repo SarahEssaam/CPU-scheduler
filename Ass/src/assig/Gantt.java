@@ -33,7 +33,7 @@ public class Gantt extends ApplicationFrame {
         final ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
         setContentPane(chartPanel);
-        this.pack();
+        this.pack(); 
         RefineryUtilities.centerFrameOnScreen(this);
         this.setVisible(true);
 }
@@ -47,7 +47,7 @@ public GanttCategoryDataset createDataset() {
       t = new Task(processArr.get(i).getName(),new SimpleTimePeriod(processArr.get(i).getStart(),processArr.get(i).getEnd())); 
        ArrayList <Process> p = processArr.get(i).getSubProcess();
         for(int j = 0; j < p.size(); j++){
-            System.out.println("ksdksk");
+          //  System.out.println("ksdksk");
             t.addSubtask(new Task("",new SimpleTimePeriod(p.get(j).getStart(),p.get(j).getEnd())));
         }
         s.add(t);

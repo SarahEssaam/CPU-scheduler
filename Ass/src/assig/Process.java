@@ -10,6 +10,8 @@ public class Process {
     private int prio;
     private int Q;
     private String name;
+    private int turns;
+    private int remainder;
     ArrayList<Process> subPro ;
     public Process(){
         subPro = new ArrayList<>(0);
@@ -20,6 +22,28 @@ public class Process {
         burst = 0;
         Q = 0;
         name = "P";
+    }
+    void evalTurns(){
+        turns = (int)((Math.ceil((double)(burst)/(double)Q)));
+       
+    }
+    void setTurns(int t){
+        turns = t;
+    }
+    int getTurns(){
+        return turns;
+    }
+    void evalRem(){
+          if((burst%Q)!=0)
+           remainder = ((burst)%Q);
+          else
+              remainder = Q;
+    }
+    void setRem(int t){
+        remainder = t;
+    }
+    int getRem(){
+        return remainder;
     }
     void createSubProcess(int s,int e){
         Process p = new Process();

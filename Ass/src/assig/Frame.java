@@ -144,6 +144,7 @@ public class Frame extends JFrame {
             //swap i and min
             return processArr.get(min);
         }
+     //use only after sortAscArrival
      Process getMinPrio(){
          int size = processArr.size();
          if(size==1) return processArr.get(0);
