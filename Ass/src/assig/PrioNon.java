@@ -22,8 +22,8 @@ public class PrioNon extends Frame{
    void btnAddPressed() {
        System.out.println("in prio");
         Process p = new Process();
-        p.setBurst(Integer.valueOf(txtBurst.getText()));
-        p.setArrival(Integer.valueOf(txtArrival.getText()));
+        p.setBurst(Float.valueOf(txtBurst.getText()));
+        p.setArrival(Float.valueOf(txtArrival.getText()));
         p.setPriority(Integer.valueOf(txtPrioNo.getText()));
         p.setName(count++);
         txtBurst.setText("");

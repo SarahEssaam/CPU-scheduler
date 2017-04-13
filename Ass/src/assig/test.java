@@ -16,7 +16,7 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 import org.jfree.ui.RefineryUtilities;
 public class test {
     public test(){
-        JFrame j = new JFrame();
+      /*  JFrame j = new JFrame();
         j.setTitle("Main");
         j.setDefaultCloseOperation(EXIT_ON_CLOSE);
         j.setLayout(new FlowLayout());
@@ -25,8 +25,18 @@ public class test {
         
         JPanel p = new JPanel(new FlowLayout());
         
-        
-        JPopupMenu pop = new JPopupMenu("menu");
+        */
+      int turns;
+      float burst = 2.25f;
+      float Q = 0.5f;
+      float remainder;
+        turns = (int)(Math.ceil((float)(burst)/(float)Q));
+        if((burst%Q)!=0)
+           remainder = ((burst)%Q);
+          else
+              remainder = Q;
+        System.out.println("rem = "+remainder+"\n turns = "+turns);
+  /*      JPopupMenu pop = new JPopupMenu("menu");
         pop.add("7amada");
         
         p.add(pop);

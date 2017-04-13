@@ -3,15 +3,15 @@ package assig;
 import java.util.ArrayList;
 
 public class Process {
-    private int arrival;
-    private int start;
-    private int end;
-    private int burst;
+    private float arrival;
+    private float start;
+    private float end;
+    private float burst;
     private int prio;
-    private int Q;
+    private float Q;
     private String name;
     private int turns;
-    private int remainder;
+    private float remainder;
     ArrayList<Process> subPro ;
     public Process(){
         subPro = new ArrayList<>(0);
@@ -33,25 +33,25 @@ public class Process {
         return turns;
     }
     void evalRem(){
-          if((burst%Q)!=0)
+          if((burst%Q)>0)
            remainder = ((burst)%Q);
           else
               remainder = Q;
     }
-    void setRem(int t){
+    void setRem(float t){
         remainder = t;
     }
-    int getRem(){
+    float getRem(){
         return remainder;
     }
-    void createSubProcess(int s,int e){
+    void createSubProcess(float s,float e){
         Process p = new Process();
         p.start = s;
         p.end = e;
         subPro.add(p);
     }
-    int getWaitingTime(){
-        int w = start - arrival;
+    float getWaitingTime(){
+        float w = start - arrival;
         if(subPro.size()==0)    //non preemptive mfish ta2ti3
         return w;
         else{
@@ -59,19 +59,19 @@ public class Process {
             return w;
         }
     }
-    int getStart(){
+    float getStart(){
         return start;
     }
-    int getEnd(){
+    float getEnd(){
         return end;
     }
-    int getArrival(){
+    float getArrival(){
         return arrival;
     }
     int getPriority(){
         return prio;
     }
-    int getBurst(){
+    float getBurst(){
         return burst;
     }
     String getName(){
@@ -83,22 +83,22 @@ public class Process {
     public ArrayList<Process> getSubProcess(){
         return subPro;
     }
-    public void setBurst(int b){
+    public void setBurst(float b){
         burst = b;
     }
-    public void setStart(int b){
+    public void setStart(float b){
         start = b;
     }
-    public void setEnd(int b){
+    public void setEnd(float b){
         end = b;
     }
-    public void setArrival(int s){
+    public void setArrival(float s){
         arrival = s;
     }
     public void setPriority(int p){
         prio = p;
     }
-    public void setQ(int p){
+    public void setQ(float p){
         Q = p;
     }
     public void NonPremEvaluate(Process previous){
@@ -113,21 +113,6 @@ public class Process {
             start = (arrival>previous.end)?arrival:previous.end;
             end = start + burst;
         }
-    }
-    public void prioNonEvaluate(){
-        
-    }
-    public void prioEvaluate(){
-        
-    }
-    public void RRevaluate(){
-        
-    }
-    public void SJFevaluate(){
-        
-    }
-    public void SRTFevaluate(){
-        
     }
    
 }

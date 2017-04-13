@@ -8,8 +8,8 @@ import java.util.ArrayList;
 public class Prio extends Frame{
     private JTextField txtPrioNo;
     private JLabel lblPrioNo;
-    private int endG ;
-    private int unitTime;
+    private float endG ;
+    private float unitTime;
     
     public Prio(){
         super("Priority Preemptive Scheduling");
@@ -20,14 +20,14 @@ public class Prio extends Frame{
         super.grid.remove(5);
         super.grid.add(txtPrioNo,5);
         endG = 0 ;
-        unitTime = 1;
+        unitTime = 0.5f;
        
     }
    void btnAddPressed() {
       // System.out.println("in prio");
         Process p = new Process();
-        p.setBurst(Integer.valueOf(txtBurst.getText()));
-        p.setArrival(Integer.valueOf(txtArrival.getText()));
+        p.setBurst(Float.valueOf(txtBurst.getText()));
+        p.setArrival(Float.valueOf(txtArrival.getText()));
         p.setPriority(Integer.valueOf(txtPrioNo.getText()));
         txtBurst.setText("");
         txtArrival.setText("");
@@ -47,6 +47,7 @@ public class Prio extends Frame{
        }
        sortAscArrival();
        Process first = getMinPrio();
+       endG = (first.getArrival());
        sortAscPriority();
        
        ArrayList<Process> tmp = new ArrayList<>();

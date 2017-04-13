@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class RR extends Frame{
     private JTextField txtQ;
     private JLabel lblQ;
-    private int q;
+    private float q;
     private boolean firstAdd;
     public RR(){
         super("Round Robin");
@@ -32,7 +32,7 @@ public class RR extends Frame{
            revalidate();
            repaint();
        }
-       System.out.println("2");
+     //  System.out.println("2");
         Process p = new Process();
         p.setBurst(Integer.valueOf(txtBurst.getText()));
         p.setArrival(Integer.valueOf(txtArrival.getText()));
@@ -49,35 +49,32 @@ public class RR extends Frame{
        this.setVisible(false);
        count = 0;
        sortAscArrival();
-       int endGlobal = (getMinPrio().getArrival());
-       ArrayList<Integer> turns = new ArrayList<>();
-       ArrayList<Integer> remainder = new ArrayList<>();
+       float endGlobal = (getMinPrio().getArrival());
+    //   ArrayList<Float> turns = new ArrayList<>();
+    //   ArrayList<Float> remainder = new ArrayList<>();
        ArrayList<Process> tmp = new ArrayList<>();
        
        tmp = (ArrayList<Process>)processArr.clone();
        
        int size = processArr.size();
        for(int i = 0; i < size; i++){
-           turns.add(i, (int)(Math.ceil((double)(processArr.get(i).getBurst())/(double)q)));
-          if(((processArr.get(i).getBurst())%q)!=0)
-           remainder.add(i, ((processArr.get(i).getBurst())%q));
-          else
-              remainder.add(i,q);
+           processArr.get(i).evalTurns();
+           processArr.get(i).evalRem();
        } 
+       Process tmpp;
        while(processArr.isEmpty()==false){
        for(int i=0;i<processArr.size();i++){
-           if(turns.get(i)==1){
-               processArr.get(i).createSubProcess(endGlobal, endGlobal+remainder.get(i));
-               endGlobal += remainder.get(i); 
-               turns.remove(i);
-               remainder.remove(i);
+           tmpp = processArr.get(i);
+           if(tmpp.getTurns()==1){
+               tmpp.createSubProcess(endGlobal, endGlobal+tmpp.getRem());
+               endGlobal += tmpp.getRem(); 
                processArr.remove(i);
                i--;
            }
            else{
                processArr.get(i).createSubProcess(endGlobal, endGlobal+q);
                endGlobal += q;
-               turns.set(i, turns.get(i)-1);
+               tmpp.setTurns(tmpp.getTurns()-1);
            }
        }}
        processArr = tmp;

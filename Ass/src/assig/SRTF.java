@@ -6,22 +6,22 @@ import java.awt.event.*;
 import java.util.ArrayList;
 
 public class SRTF extends Frame{
-    private int endG ;
-    private int unitTime;
+    private float endG ;
+    private float unitTime;
     
    public SRTF(){
        super("SRTF");
         endG = 0 ;
-        unitTime = 1;
+        unitTime = 0.5f;
         count = 0;
        
     }
    void btnAddPressed() {
       // System.out.println("in prio");
         Process p = new Process();
-        p.setBurst(Integer.valueOf(txtBurst.getText()));
-        p.setArrival(Integer.valueOf(txtArrival.getText()));
-        p.setPriority(Integer.valueOf(txtBurst.getText()));
+        p.setBurst(Float.valueOf(txtBurst.getText()));
+        p.setArrival(Float.valueOf(txtArrival.getText()));
+        p.setPriority(Float.valueOf(txtBurst.getText()));
         txtBurst.setText("");
         txtArrival.setText("");
         p.setName(count++); 

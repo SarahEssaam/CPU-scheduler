@@ -44,11 +44,12 @@ public GanttCategoryDataset createDataset() {
     TaskSeriesCollection collection = new TaskSeriesCollection();
     for(int i= 0 ;i<processArr.size();i++){
      s = new TaskSeries(processArr.get(i).getName());
-      t = new Task(processArr.get(i).getName(),new SimpleTimePeriod(processArr.get(i).getStart(),processArr.get(i).getEnd())); 
+    
+      t = new Task(processArr.get(i).getName(),new SimpleTimePeriod((int)(processArr.get(i).getStart()),(int)(processArr.get(i).getEnd()))); 
        ArrayList <Process> p = processArr.get(i).getSubProcess();
         for(int j = 0; j < p.size(); j++){
           //  System.out.println("ksdksk");
-            t.addSubtask(new Task("",new SimpleTimePeriod(p.get(j).getStart(),p.get(j).getEnd())));
+            t.addSubtask(new Task("",new SimpleTimePeriod((int)(p.get(j).getStart()),(int)(p.get(j).getEnd()))));
         }
         s.add(t);
         collection.add(s);
