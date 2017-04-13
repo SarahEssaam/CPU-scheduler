@@ -21,6 +21,7 @@ public class Frame extends JFrame {
      protected JButton btnAdd;
      protected JButton btnDone;
      protected float avgWT;
+     public static Gantt gant;
      protected ArrayList<Process> processArr;
     
     public Frame(String title){
@@ -31,7 +32,9 @@ public class Frame extends JFrame {
         //this.pack();
         Container c = this.getContentPane();
         avgWT = 0;
+        
         processArr = new ArrayList<>(0);
+        
         lblBurst = new JLabel("Burst Time");
         lblArrival = new JLabel("Arrival Time");
         txtBurst = new JTextField("");

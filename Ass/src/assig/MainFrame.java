@@ -22,6 +22,8 @@ public class MainFrame extends JFrame {
     Frame f;
     private String str;
     public MainFrame(){
+        ArrayList pr = new ArrayList<Process>();
+        Frame.gant = new Gantt("No Scheduling Chosen", pr);
         this.setTitle("CPU Scheduling");
         this.setSize(500,400);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

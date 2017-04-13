@@ -37,6 +37,19 @@ public class Gantt extends ApplicationFrame {
         RefineryUtilities.centerFrameOnScreen(this);
         this.setVisible(true);
 }
+    void createGantt(final String title,ArrayList<Process> p) {
+        setTitle(title);
+        processArr = p;
+        final GanttCategoryDataset dataset = createDataset();
+        final JFreeChart chart = createChart(dataset);
+        // add the chart to a panel...
+        final ChartPanel chartPanel = new ChartPanel(chart);
+        chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
+        setContentPane(chartPanel);
+        this.revalidate();
+        this.repaint();
+        
+    }
 
 public GanttCategoryDataset createDataset() {
     Task t;
