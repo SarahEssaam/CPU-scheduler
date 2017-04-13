@@ -96,10 +96,10 @@ public class Frame extends JFrame {
                     min = j;
                 }
             }
-            //swap i and min
-            Process tmp = processArr.get(i);
-            processArr.set(i, processArr.get(min));
-            processArr.set(min, tmp);
+            //swap i and min but keep l tarteeb
+            Process tmp = processArr.get(min);
+            processArr.remove(min);
+            processArr.add(i, tmp);
         }
      }
      void sortAscArrival(){
@@ -114,36 +114,12 @@ public class Frame extends JFrame {
                 }
             }
             //swap i and min
-            Process tmp = processArr.get(i);
-            processArr.set(i, processArr.get(min));
-            processArr.set(min, tmp);
+           Process tmp = processArr.get(min);
+            processArr.remove(min);
+            processArr.add(i, tmp);
         }
      }
-     Process getMinBurst(){
-         int size = processArr.size();
-         if(size==1) return processArr.get(0);
-        /* doesnt make sense cuz already sorted 
-         int min = 0;
-            for(int j = 1; j < size ;j++ ){
-                if((processArr.get(j).getPriority())<(processArr.get(min).getPriority())){
-                    min = j;
-                }
-            }
-            //for equal minimum arrivals : find minimum in burst
-          */int  min = 0;
-        for(int i = 1; i< size;i++){
-            if(processArr.get(i).getArrival()==processArr.get(min).getArrival()){
-                if(processArr.get(i).getBurst()<processArr.get(min).getBurst()){
-                    min = i;
-                }
-            }
-            else{
-                break;
-            }
-        }
-            //swap i and min
-            return processArr.get(min);
-        }
+     
      //use only after sortAscArrival
      Process getMinPrio(){
          int size = processArr.size();

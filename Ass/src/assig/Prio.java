@@ -75,7 +75,7 @@ public class Prio extends Frame{
                first.createSubProcess(endG, endG+first.getRem());
                endG += first.getRem();
                first.setTurns(first.getTurns()-1);
-               Process temp = first;
+               Process temp = first; 
                processArr.remove(first);
                if(processArr.size()>0){
                     for(int i = 0; i < processArr.size(); i++){

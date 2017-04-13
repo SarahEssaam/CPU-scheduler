@@ -25,13 +25,12 @@ public class RR extends Frame{
            q = Integer.valueOf(txtQ.getText());
            firstAdd =  false;
            txtQ.setText("Done");
- 
- //          System.out.println("1");
-         //  super.grid.remove(4);
-     //   super.grid.add(lblExtra,4);
-        //super.grid.remove(5);
-       // super.grid.add(lblExtra2,5);
-           //remove(lblQ);
+           super.grid.remove(4);
+        super.grid.add(lblExtra,4);
+        super.grid.remove(5);
+        super.grid.add(lblExtra2,5);
+           revalidate();
+           repaint();
        }
        System.out.println("2");
         Process p = new Process();
