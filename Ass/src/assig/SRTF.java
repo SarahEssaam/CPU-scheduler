@@ -13,8 +13,7 @@ public class SRTF extends Frame{
        super("SRTF");
         endG = 0 ;
         unitTime = 0.5f;
-        count = 0;
-       
+        count = 0;  
     }
    void btnAddPressed() {
       // System.out.println("in prio");
@@ -22,9 +21,14 @@ public class SRTF extends Frame{
         p.setBurst(Float.valueOf(txtBurst.getText()));
         p.setArrival(Float.valueOf(txtArrival.getText()));
         p.setPriority(Float.valueOf(txtBurst.getText()));
+        p.setName(count++);
+        rowData[0] = p.getName();
+        rowData[1]= txtArrival.getText();
+        rowData[2] = txtBurst.getText();
+        rowData[3] = "";
+        Table.addRow(rowData);
         txtBurst.setText("");
-        txtArrival.setText("");
-        p.setName(count++); 
+        txtArrival.setText(""); 
         processArr.add(p);
     }
 

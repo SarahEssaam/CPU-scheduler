@@ -39,6 +39,11 @@ public class RR extends Frame{
         p.setPriority(Float.valueOf(txtArrival.getText()));
         p.setQ(q);
         p.setName(count++);
+        rowData[0] = p.getName();
+        rowData[1]= txtArrival.getText();
+        rowData[2] = txtBurst.getText();
+        rowData[3] = "";
+        Table.addRow(rowData);
         txtBurst.setText("");
         txtArrival.setText("");
         txtQ.setText("");

@@ -21,6 +21,7 @@ public class Frame extends JFrame {
      protected JButton btnAdd;
      protected JButton btnDone;
      protected float avgWT;
+     protected String rowData[];
      public static Gantt gant;
      protected ArrayList<Process> processArr;
     
@@ -57,6 +58,8 @@ public class Frame extends JFrame {
         grid.add(btnDone,7);
 //c.add(lblProcessNo);
         c.add(grid);
+        Table.initTable();
+        rowData = new String[4];
     btnAdd.addActionListener(
                 new ActionListener() {
                     @Override
@@ -149,8 +152,9 @@ public class Frame extends JFrame {
             //swap i and min
             return processArr.get(min);
         }
+
 }
-     /* for testing
+    /* for testing
      public void setProArr(ArrayList<Process> p){
          processArr = p;
      }

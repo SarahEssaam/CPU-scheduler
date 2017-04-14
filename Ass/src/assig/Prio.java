@@ -29,10 +29,15 @@ public class Prio extends Frame{
         p.setBurst(Float.valueOf(txtBurst.getText()));
         p.setArrival(Float.valueOf(txtArrival.getText()));
         p.setPriority(Float.valueOf(txtPrioNo.getText()));
+        p.setName(count++);
+        rowData[0] = p.getName();
+        rowData[1]= txtArrival.getText();
+        rowData[2] = txtBurst.getText();
+        rowData[3] = txtPrioNo.getText();
+        Table.addRow(rowData);
         txtBurst.setText("");
         txtArrival.setText("");
         txtPrioNo.setText("");
-        p.setName(count++);
         processArr.add(p);
     }
 
@@ -109,7 +114,7 @@ public class Prio extends Frame{
        }
         avgWT = avgWT/size ;
         AvgWTp.setAvgWT(avgWT);
-       gant.createGantt("Priority Scheduling",processArr);
+       gant.createGantt("Preemptive Priority Scheduling",processArr);
        this.dispose();
     }
         

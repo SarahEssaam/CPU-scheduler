@@ -34,10 +34,10 @@ public class Gantt extends ApplicationFrame {
         final JFreeChart chart = createChart(dataset);
         // add the chart to a panel...
         final ChartPanel chartPanel = new ChartPanel(chart);
-        chartPanel.setPreferredSize(new java.awt.Dimension(500, 270));
+        chartPanel.setPreferredSize(new java.awt.Dimension(750,320));
         setContentPane(chartPanel);
         this.pack(); 
-        RefineryUtilities.centerFrameOnScreen(this);
+        RefineryUtilities.positionFrameOnScreen(this, 0.0, 0.95);
         this.setVisible(true);
 }
     void createGantt(final String title,ArrayList<Process> p) {

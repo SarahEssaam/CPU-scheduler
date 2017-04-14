@@ -3,18 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/FCFS.java</file>
-            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/PrioNon.java</file>
-            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/test.java</file>
-            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Frame.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Table.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/AvgWTp.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/RR.java</file>
-            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Menu.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Prio.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Assig.java</file>
-            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/SJF.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/SRTF.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/MainFrame.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Process.java</file>
             <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Gantt.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/FCFS.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/FPanel.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/PrioNon.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/test.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/Frame.java</file>
+            <file>file:/D:/proj/CPU-scheduler/Ass/src/assig/SJF.java</file>
         </group>
     </open-files>
 </project-private>

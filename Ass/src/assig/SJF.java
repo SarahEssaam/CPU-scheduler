@@ -18,6 +18,11 @@ public class SJF extends Frame{
         p.setArrival(Float.valueOf(txtArrival.getText()));
         p.setName(count++);
         p.setPriority(Float.valueOf(txtBurst.getText()));
+        rowData[0] = p.getName();
+        rowData[1]= txtArrival.getText();
+        rowData[2] = txtBurst.getText();
+        rowData[3] = "";
+        Table.addRow(rowData);
         txtBurst.setText("");
         txtArrival.setText("");
         processArr.add(p);

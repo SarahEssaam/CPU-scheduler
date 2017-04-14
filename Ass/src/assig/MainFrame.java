@@ -16,6 +16,7 @@ import org.jfree.ui.RefineryUtilities;
 public class MainFrame extends JFrame {
     JButton[] item = new JButton[6];
     //JLabel lblChoose;
+    static Table table;
     JButton btnOk;
     JLabel lbl;
     JPanel sPanel;
@@ -25,12 +26,13 @@ public class MainFrame extends JFrame {
         ArrayList pr = new ArrayList<Process>();
         Frame.gant = new Gantt("No Scheduling Chosen", pr);
         this.setTitle("CPU Scheduling");
-        this.setSize(500,400);
+        this.setSize(950,400);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
       //  RefineryUtilities.centerFrameOnScreen(this);
         //this.pack();
         Container c = this.getContentPane();
        c.setLayout(new GridLayout(2,2));
+       
         lbl = new JLabel("Choose one");
         item[0] = new JButton("FCFS");
         item[1] = new JButton("SJF");
@@ -44,10 +46,11 @@ public class MainFrame extends JFrame {
         sPanel.add(lbl);
          for(int i= 0;i<6;i++)        
         sPanel.add(item[i]);
-      
+      table = new Table();
         c.add(sPanel);
         c.add(new AvgWTp());
         c.add(new FPanel());
+        c.add(table);
       //  c.setVisible(true);
         
         for(int i = 0;i < 6; i++){

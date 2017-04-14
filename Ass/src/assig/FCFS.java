@@ -19,8 +19,13 @@ public class FCFS extends Frame{
         p.setBurst(Float.valueOf(txtBurst.getText()));
         p.setArrival(Float.valueOf(txtArrival.getText()));
         p.setName(count++);
+        rowData[0] = p.getName();
+        rowData[1]= txtArrival.getText();
+        rowData[2] = txtBurst.getText();
+        rowData[3] = "";
         //set priority of each process to be arrival time
        // p.setPriority(Integer.valueOf(txtArrival.getText()));
+       Table.addRow(rowData);
         txtBurst.setText("");
         txtArrival.setText("");
         processArr.add(p);

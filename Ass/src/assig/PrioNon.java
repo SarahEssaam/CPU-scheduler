@@ -20,12 +20,17 @@ public class PrioNon extends Frame{
        
     }
    void btnAddPressed() {
-       System.out.println("in prio");
+     //  System.out.println("in prio");
         Process p = new Process();
         p.setBurst(Float.valueOf(txtBurst.getText()));
         p.setArrival(Float.valueOf(txtArrival.getText()));
         p.setPriority(Float.valueOf(txtPrioNo.getText()));
         p.setName(count++);
+        rowData[0] = p.getName();
+        rowData[1]= txtArrival.getText();
+        rowData[2] = txtBurst.getText();
+        rowData[3] = txtPrioNo.getText();
+        Table.addRow(rowData);
         txtBurst.setText("");
         txtArrival.setText("");
         txtPrioNo.setText("");
@@ -76,7 +81,7 @@ public class PrioNon extends Frame{
        }
        avgWT /= processArr.size();
        AvgWTp.setAvgWT(avgWT);
-       gant.createGantt("SJF Scheduling",processArr);
+       gant.createGantt("Priority Scheduling",processArr);
        this.dispose();
     }
         
