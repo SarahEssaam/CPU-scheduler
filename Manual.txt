@@ -1,0 +1,19 @@
+1) first you should choose one of the 6 scheduling algorithms by clicking one of the buttons
+2) according to the algorithm chosen a window is displayed requiring processes info
+3) Enter the processes info one by one, after each process press add and when you are finished click done
+-note that only numbers (no string) is allowed as input, also an empty string is not allowed 
+- the entered processes are now shown in the table
+4) The Gantt chart window now has your processes schedule and the average waiting time is calculated in the MainFrame
+5) If one or more of the processes you're entering have a floating point value click yes to "floating value?" before entering the processes info(after or before choosing the scheduling algorithm)
+ note that this will consider all of the next processes you enter as floating even if you choose another algorithm and start re entering processes.
+-If you wish to undo it at anytime press "no" button
+-Don't use this property if non of the processes info (arrival time/burst time) is floating
+-pressing no before entering process values with no floating point is important if you have previously chosen yes. 
+6) if you would like to choose another algorithm to simulate you can by pressing the button with the algorithms name
+7) repeat the steps as before 
+8) to end the app just close any of the windows.
+
+-note that: if the average waiting time is not fully visibly maximizing the windows size to the right will help
+also same with the numbers in the Gantt chart
+- the program supports all schedulers 
+- RR doesnt support idle times  
